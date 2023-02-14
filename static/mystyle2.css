@@ -1,0 +1,47 @@
+body {
+  background-color: #363940;
+   /*outline: thin dashed green;            just so you can see the box */
+}
+h2 {
+  font-family: "Roboto";
+  color: white;
+  margin-left: 5px;
+}
+
+h1 {
+  font-family: "Roboto";
+  color: white;
+  text-align: center;
+}
+
+.aspectwrapper {
+}
+
+.wrapper {
+    display:inline-block;
+
+    width: 100%;
+}
+
+.chart-container {
+    height:80vh;
+    width:75vw;
+    display:inline-block;
+    float: left;
+}
+
+#drugi {
+    outline: dashed yellow;
+}
+
+.text-container
+{
+    height:40vh;
+    width:20vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 2vw;
+}
