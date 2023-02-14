@@ -11,47 +11,55 @@
      <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
  </head>
 
- <body>
+ <body onresize="responsiveFonts)")>
     <h1> INTELIGENTNY SYSTEM NAWADNIANIA</h1>
 
 
 
 
     <h2>Wilgotność gleby</h2>
-    <div class = "container-flex" style = "height: 20%">
-            <div class = "row d-flex p-2">
-                <div class = "col-md-9">
+    <div class = "container-flex" style = "height: 1000">
+        <div class = "row d-flex p-2">
 
-                        <canvas id="lineChart" width="500" height="300"></canvas>
+            <div class = "col-md-9">
+                <canvas id="lineChart" width="500" height="300"></canvas>
+            </div>
 
-                </div>
-                <div class = "col-md-3 my-auto" align="center">
-                    <div class = "d-flex align-items-center mb-3  justify-content-center">
-                        <form action ="#" method="post">
-                            <p class="text-white"> Wprowadź Gorny limit:</p>
-                            <p><input type = "number" name = "upper"/></p>
-                            <p class="text-white">Wprowadź Dolny limit:</p>
-                            <p><input type = "number" name = "lower"/></p>
-                            <p><button type="submit" class="btn btn-primary btn-block">Submit</button></p>
-                        </form>
-                    </div>
+            <div class = "col-md-3 my-auto" align="center">
+                <div class = "d-flex align-items-center mb-3  justify-content-center">
+                    <form action ="#" method="post">
+                        <p class="text-white"> Wprowadź Gorny limit:</p>
+                        <p><input type = "number" name = "upper"/></p>
+                        <p class="text-white">Wprowadź Dolny limit:</p>
+                        <p><input type = "number" name = "lower"/></p>
+                        <p><button type="submit" class="btn btn-primary btn-block">Submit</button></p>
+                    </form>
                 </div>
             </div>
 
-      </br>
+        </div>
+    </br>
+
         <h2>Temperatura</h2>
-        <div class="row">
+        <div class="row"  style = "height: 50%">
             <canvas id="lineChart2" width="800" height="400"></canvas>
         </div>
 
         <h2>Oświetlenie</h2>
-        <div class="row">
-                <canvas id="lineChart3" width="800" height="400"></canvas>
+        <div class="row"  style = "height: 50%">
+            <canvas id="lineChart3" width="800" height="400"></canvas>
         </div>
     </div>
+
+
     <script>
 
 
+    function responsiveFonts(){
+        if (window.outerWidth>999){
+            Chart.defaults.font.size=25;
+        };
+    }
 
 
        var ctx = document.getElementById("lineChart").getContext("2d");
@@ -65,8 +73,6 @@
                         data: {{values | safe }},
                         fill: true,
                         borderColor: "rgb(75, 192, 192)",<!--kolorek linii wykresu-->
-
-
                         lineTension: 0,
                         spanGaps: true
                     }
@@ -74,7 +80,7 @@
             },
 
             options: {
-
+                maintainAspectRatio: false,
                 scales: {
                       y: {
                         ticks: {
@@ -114,23 +120,18 @@
             },
 
             options: {
+                maintainAspectRatio: false,
                 scales: {
                     y: {
                         ticks: {
                             color: "rgb(75, 192, 192)",
                             beginAtZero: true,
-                            font: {
-                                size: 8
-                            }
                         }
                     },
                     x: {
                         ticks: {
                             color: "rgb(75, 192, 192)",
                             beginAtZero: true,
-                            font: {
-                                size: 8
-                            }
                         },
                     }
                 }
@@ -156,6 +157,7 @@
                 ]
             },
             options: {
+                maintainAspectRatio: false,
                 scales: {
                     y: {
                         ticks: {

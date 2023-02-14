@@ -1,32 +1,213 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title> Bootstrap Screen size Example </title>
 <meta charset="utf-8">
-<meta name= "viewport" content= "width=device-width, initial-scale=1">
-<link rel= "stylesheet" href= "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap Navbar with Login Form in Dropdown</title>
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+	body {
+		font-family: 'Varela Round', sans-serif;
+	}
+	.form-control {
+		box-shadow: none;
+		border-radius: 4px;
+	}
+	.form-control:focus {
+		border-color: #5c6ac4;
+		box-shadow: 0 0 8px rgba(0,0,0,6);
+	}
+
+	.navbar {
+		background: #eeee;
+		padding-left: 16px;
+		padding-right: 16px;
+		border-bottom: 1px solid #dfe3e8;
+		border-radius: 0;
+	}
+
+	.navbar .navbar-brand, .navbar .navbar-brand:hover, .navbar .navbar-brand:focus {
+		padding-left: 0;
+		font-size: 20px;
+		padding-right: 50px;
+	}
+	.navbar .navbar-brand b {
+		font-weight: bold;
+		color: #5c6ac4;
+	}
+	.navbar .form-inline {
+        display: inline-block;
+    }
+	.navbar ul.nav li {
+		position: relative;
+	}
+	.navbar ul.nav li a {
+		color: #888;
+	}
+
+
+	.navbar .nav .btn-primary, .navbar .nav .btn-primary:active {
+		color: #fff;
+		background: #5c6ac4;
+		padding-top: 8px;
+		padding-bottom: 6px;
+		border-radius: 4px;
+		vertical-align: middle;
+		border: none;
+		min-width: 120px;
+		margin-top: 8px;
+	}
+	.navbar .navbar-right li:first-child a {
+		padding-right: 30px;
+	}
+	.navbar .nav .btn-primary:hover, .navbar .nav .btn-primary:focus {
+		color: #fff;
+		outline: none;
+		background: #5765c1;
+	}
+	.search-box .btn span {
+		transform: scale(0.9);
+		display: inline-block;
+	}
+	.navbar ul li i {
+		font-size: 18px;
+	}
+	.navbar .dropdown-menu i {
+		font-size: 16px;
+		min-width: 22px;
+	}
+	.navbar ul.nav li.active a, .navbar ul.nav li.open > a {
+		background: transparent !important;
+	}
+	.navbar .dropdown-menu {
+		border-radius: 1px;
+		border-color: #e5e5e5;
+		box-shadow: 0 2px 8px rgba(0,0,0,.05);
+	}
+	.navbar .nav .dropdown-menu li a, .navbar .nav .dropdown-menu li a:hover, .navbar .nav .dropdown-menu li a:focus {
+		padding: 8px 20px;
+		line-height: normal;
+	}
+	.navbar .navbar-form {
+		border: none;
+	}
+	.navbar .navbar-form-wrapper {
+		padding: 0 15px;
+	}
+    .navbar .login-form label {
+        color: #888;
+        font-weight: normal;
+    }
+	.navbar .dropdown-menu.login-form {
+		width: 280px;
+		padding: 20px;
+		left: auto;
+		right: 0;
+        font-size: 14px;
+	}
+	.navbar .nav .dropdown-menu.login-form a {
+		padding: 0 !important;
+		color: #5c6ac4;
+        font-weight: normal;
+	}
+	.navbar .nav .dropdown-menu.login-form a:hover{
+		text-decoration: underline;
+	}
+	.navbar .dropdown-menu.login-form .checkbox-inline {
+		margin-top: 10px;
+	}
+	@media (min-width: 1200px){
+		.form-inline .input-group {
+			width: 300px;
+			margin-left: 30px;
+		}
+	}
+	@media (max-width: 768px){
+		.navbar .dropdown-menu.login-form {
+			width: 100%;
+			padding: 10px 15px;
+			background: transparent;
+			border: none;
+		}
+		.navbar .form-inline {
+			display: block;
+		}
+		.navbar .input-group {
+			width: 100%;
+		}
+		.navbar .nav .btn-primary, .navbar .nav .btn-primary:active {
+			display: block;
+		}
+	}
+</style>
+<script>
+	// Prevent dropdown menu from closing when click inside the form
+	$(document).on("click", ".navbar-right .dropdown-menu", function(e){
+		e.stopPropagation();
+	});
+</script>
 </head>
 <body>
-<div class="container-fluid">
-<h1> The Large Screen size in bootstrap </h1>
-<p>The web application made in two ways. One is static and another is responsive. <br>
-The static web application works on one screen size but responsive web application modifies according to screen size.
-</p>
-<b> The Extra Small screen: for laptop devices. </b>
-<div class="row">
-<div class="col-lg" style="background-color:orange;">
-The web application made in two ways. One is static and another is responsive. <br>
-The static web application works on one screen size but responsive web application modifies according to screen size.
-</div>
-<div class="col-lg" style="background-color:yellow;">
-The web application made in two ways. One is static and another is responsive. <br>
-The static web application works on one screen size but responsive web application modifies according to screen size.
-</div>
-</div>
-</div>
-<script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-</script>
-<script src= "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
-</script>
+<nav class="navbar navbar-default navbar-expand-lg navbar-light">
+	<div class="navbar-header">
+        <a class="navbar-brand" href="#">Inteligentny<b>System Nawadniania</b></a>
+		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+			<span class="navbar-toggler-icon"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+	</div>
+	<!-- Collection of nav links, forms, and other content for toggling -->
+	<div id="navbarCollapse" class="collapse navbar-collapse">
+		<ul class="nav navbar-nav">
+			<li><a href="#">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li class="dropdown">
+				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Services <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="#">Web Design</a></li>
+					<li><a href="#">Web Development</a></li>
+					<li><a href="#">Graphic Design</a></li>
+					<li><a href="#">Digital Marketing</a></li>
+				</ul>
+			</li>
+			<li class="active"><a href="#">Pricing</a></li>
+			<li><a href="#">Blog</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li>
+				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Login</a>
+				<ul class="dropdown-menu login-form">
+					<li>
+						<form action="/examples/actions/confirmation.php" method="post">
+							<div class="form-group">
+								<label>Username</label>
+								<input type="text" class="form-control" required="required">
+							</div>
+							<div class="form-group">
+								<div class="clearfix">
+									<label>Password</label>
+									<a href="#" class="pull-right text-muted"><small>Forgot?</small></a>
+								</div>
+
+								<input type="password" class="form-control" required="required">
+							</div>
+							<input type="submit" class="btn btn-primary btn-block" value="Login">
+						</form>
+					</li>
+				</ul>
+			</li>
+			<li><a href="#" class="btn btn-primary mt-1 mb-1">Get Started</a></li>
+		</ul>
+	</div>
+</nav>
 </body>
 </html>
