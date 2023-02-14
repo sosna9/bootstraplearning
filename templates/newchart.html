@@ -11,42 +11,47 @@
      <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
  </head>
 
- <body onresize="responsiveFonts)")>
+ <body>
     <h1> INTELIGENTNY SYSTEM NAWADNIANIA</h1>
 
 
 
 
-    <h2>Wilgotność gleby</h2>
-    <div class = "container-flex" style = "height: 1000">
-        <div class = "row d-flex p-2">
 
-            <div class = "col-md-9">
-                <canvas id="lineChart" width="500" height="300"></canvas>
-            </div>
 
-            <div class = "col-md-3 my-auto" align="center">
-                <div class = "d-flex align-items-center mb-3  justify-content-center">
-                    <form action ="#" method="post">
-                        <p class="text-white"> Wprowadź Gorny limit:</p>
-                        <p><input type = "number" name = "upper"/></p>
-                        <p class="text-white">Wprowadź Dolny limit:</p>
-                        <p><input type = "number" name = "lower"/></p>
-                        <p><button type="submit" class="btn btn-primary btn-block">Submit</button></p>
-                    </form>
+
+        <div class = "container-flex">
+            <div class = "row d-flex m-3 border border-success" style = "height: 700px">
+                <h2 class = "m-2"> Wilgotność gleby</h2>
+
+                <div class = "col-md-9">
+                    <canvas id="lineChart" width="500" height="300"></canvas>
                 </div>
-            </div>
 
-        </div>
+                <div class = "col-md-3 my-auto" align="center">
+                    <div class = "d-flex align-items-center mb-3  justify-content-center">
+                        <form action ="#" method="post">
+                            <p class="text-white"> Wprowadź Gorny limit:</p>
+                            <p><input type = "number" name = "upper"/></p>
+                            <p class="text-white">Wprowadź Dolny limit:</p>
+                            <p><input type = "number" name = "lower"/></p>
+                            <p><button type="submit" class="btn btn-primary btn-block">Submit</button></p>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
     </br>
 
-        <h2>Temperatura</h2>
-        <div class="row"  style = "height: 50%">
+
+        <div class="row d-flex m-5"  style = "height: 700px">
+            <h2 class = "m-2">Temperatura</h2>
             <canvas id="lineChart2" width="800" height="400"></canvas>
         </div>
 
-        <h2>Oświetlenie</h2>
-        <div class="row"  style = "height: 50%">
+
+        <div class="row d-flex m-5"  style = "height: 700px">
+            <h2 class = "m-2">Oświetlenie</h2>
             <canvas id="lineChart3" width="800" height="400"></canvas>
         </div>
     </div>
@@ -64,7 +69,7 @@
 
        var ctx = document.getElementById("lineChart").getContext("2d");
        var lineChart = new Chart(ctx, {
-            type: "line",
+            type: "bar",
             data:{
                 labels: {{ labels | safe }},
                 datasets: [
@@ -72,7 +77,8 @@
                         label:"Nawodnienie",
                         data: {{values | safe }},
                         fill: true,
-                        borderColor: "rgb(75, 192, 192)",<!--kolorek linii wykresu-->
+                        borderColor: "rgb(75, 102, 192)",<!--kolorek linii wykresu-->
+                        backgroundColor: '#9BF0F5',
                         lineTension: 0,
                         spanGaps: true
                     }
@@ -83,9 +89,10 @@
                 maintainAspectRatio: false,
                 scales: {
                       y: {
+                        min: 0,
                         ticks: {
                             color: "rgb(75, 192, 192)",
-                            beginAtZero: true,
+                            beginAtZero: false,
 
                         }
                       },
@@ -125,13 +132,13 @@
                     y: {
                         ticks: {
                             color: "rgb(75, 192, 192)",
-                            beginAtZero: true,
+                            beginAtZero: false,
                         }
                     },
                     x: {
                         ticks: {
                             color: "rgb(75, 192, 192)",
-                            beginAtZero: true,
+                            beginAtZero: false,
                         },
                     }
                 }
@@ -142,7 +149,7 @@
 
        var ctx3 = document.getElementById("lineChart3").getContext("2d");
        var lineChart3 = new Chart(ctx3, {
-            type: "line",
+            type: "bar",
             data:{
                 labels: {{ labels | safe }},
                 datasets: [
@@ -151,7 +158,8 @@
                         data: {{lightings | safe }},
                         fill: true,
                         borderColor: "rgb(75, 100, 100)",
-                        borderColor: "rgb(75, 192, 192)",<!--kolorek linii wykresu-->
+                        borderColor: "rgb(0, 0, 0)",<!--kolorek linii wykresu-->
+                        backgroundColor: '#9BD0F5',
                         lineTension:1
                     }
                 ]
@@ -163,18 +171,12 @@
                         ticks: {
                             color: "rgb(75, 192, 192)",
                             beginAtZero: true,
-                            font: {
-                                size: 8
-                            }
                         }
                     },
                     x: {
                         ticks: {
                             color: "rgb(75, 192, 192)",
                             beginAtZero: true,
-                            font: {
-                                size: 8
-                            }
                         },
                     }
                 }
