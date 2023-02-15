@@ -12,24 +12,66 @@
  </head>
 
  <body>
+ <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">
+              <i class="fa fa-home"></i>
+              Home
+              </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa fa-envelope-o">
+                <span class="badge badge-danger">11</span>
+              </i>
+              Link
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">
+              <i class="fa fa-envelope-o">
+                <span class="badge badge-warning">11</span>
+              </i>
+              Disabled
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-envelope-o">
+                <span class="badge badge-primary">11</span>
+              </i>
+              Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+    </ul>
+     </div>
+
+ </nav>
     <h1> INTELIGENTNY SYSTEM NAWADNIANIA</h1>
-
-
-
-
-
 
 
         <div class = "container-flex">
             <div class = "row d-flex m-3 border border-success" style = "height: 700px">
                 <h2 class = "m-2"> Wilgotność gleby</h2>
 
-                <div class = "col-md-9">
+                <div class = "col">
                     <canvas id="lineChart" width="500" height="300"></canvas>
                 </div>
 
-                <div class = "col-md-3 my-auto" align="center">
-                    <div class = "d-flex align-items-center mb-3  justify-content-center">
+                <div class = "col-md-2 my-auto" align="center", style="width:300px">
+                    <div class = "align-items-center loat-right width:200px">
                         <form action ="#" method="post">
                             <p class="text-white"> Wprowadź Gorny limit:</p>
                             <p><input type = "number" name = "upper"/></p>
@@ -49,7 +91,7 @@
             <canvas id="lineChart2" width="800" height="400"></canvas>
         </div>
 
-
+    </br>
         <div class="row d-flex m-5"  style = "height: 700px">
             <h2 class = "m-2">Oświetlenie</h2>
             <canvas id="lineChart3" width="800" height="400"></canvas>

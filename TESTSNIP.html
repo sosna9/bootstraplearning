@@ -2,209 +2,249 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bootstrap Navbar with Login Form in Dropdown</title>
-<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<style>
-	body {
-		font-family: 'Varela Round', sans-serif;
-	}
-	.form-control {
-		box-shadow: none;
-		border-radius: 4px;
-	}
-	.form-control:focus {
-		border-color: #5c6ac4;
-		box-shadow: 0 0 8px rgba(0,0,0,6);
-	}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-	.navbar {
-		background: #eeee;
-		padding-left: 16px;
-		padding-right: 16px;
-		border-bottom: 1px solid #dfe3e8;
-		border-radius: 0;
-	}
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-	.navbar .navbar-brand, .navbar .navbar-brand:hover, .navbar .navbar-brand:focus {
-		padding-left: 0;
-		font-size: 20px;
-		padding-right: 50px;
-	}
-	.navbar .navbar-brand b {
-		font-weight: bold;
-		color: #5c6ac4;
-	}
-	.navbar .form-inline {
-        display: inline-block;
-    }
-	.navbar ul.nav li {
-		position: relative;
-	}
-	.navbar ul.nav li a {
-		color: #888;
-	}
-
-
-	.navbar .nav .btn-primary, .navbar .nav .btn-primary:active {
-		color: #fff;
-		background: #5c6ac4;
-		padding-top: 8px;
-		padding-bottom: 6px;
-		border-radius: 4px;
-		vertical-align: middle;
-		border: none;
-		min-width: 120px;
-		margin-top: 8px;
-	}
-	.navbar .navbar-right li:first-child a {
-		padding-right: 30px;
-	}
-	.navbar .nav .btn-primary:hover, .navbar .nav .btn-primary:focus {
-		color: #fff;
-		outline: none;
-		background: #5765c1;
-	}
-	.search-box .btn span {
-		transform: scale(0.9);
-		display: inline-block;
-	}
-	.navbar ul li i {
-		font-size: 18px;
-	}
-	.navbar .dropdown-menu i {
-		font-size: 16px;
-		min-width: 22px;
-	}
-	.navbar ul.nav li.active a, .navbar ul.nav li.open > a {
-		background: transparent !important;
-	}
-	.navbar .dropdown-menu {
-		border-radius: 1px;
-		border-color: #e5e5e5;
-		box-shadow: 0 2px 8px rgba(0,0,0,.05);
-	}
-	.navbar .nav .dropdown-menu li a, .navbar .nav .dropdown-menu li a:hover, .navbar .nav .dropdown-menu li a:focus {
-		padding: 8px 20px;
-		line-height: normal;
-	}
-	.navbar .navbar-form {
-		border: none;
-	}
-	.navbar .navbar-form-wrapper {
-		padding: 0 15px;
-	}
-    .navbar .login-form label {
-        color: #888;
-        font-weight: normal;
-    }
-	.navbar .dropdown-menu.login-form {
-		width: 280px;
-		padding: 20px;
-		left: auto;
-		right: 0;
-        font-size: 14px;
-	}
-	.navbar .nav .dropdown-menu.login-form a {
-		padding: 0 !important;
-		color: #5c6ac4;
-        font-weight: normal;
-	}
-	.navbar .nav .dropdown-menu.login-form a:hover{
-		text-decoration: underline;
-	}
-	.navbar .dropdown-menu.login-form .checkbox-inline {
-		margin-top: 10px;
-	}
-	@media (min-width: 1200px){
-		.form-inline .input-group {
-			width: 300px;
-			margin-left: 30px;
-		}
-	}
-	@media (max-width: 768px){
-		.navbar .dropdown-menu.login-form {
-			width: 100%;
-			padding: 10px 15px;
-			background: transparent;
-			border: none;
-		}
-		.navbar .form-inline {
-			display: block;
-		}
-		.navbar .nav .btn-primary, .navbar .nav .btn-primary:active {
-			display: block;
-		}
-	}
-</style>
-<script>
-	// Prevent dropdown menu from closing when click inside the form
-	$(document).on("click", ".navbar-right .dropdown-menu", function(e){
-		e.stopPropagation();
-	});
-</script>
-</head>
-<body>
-<nav class="navbar navbar-default navbar-expand-lg navbar-light">
-	<div class="navbar-header">
-        <a class="navbar-brand" href="#">Inteligentny<b>System Nawadniania</b></a>
-		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-			<span class="navbar-toggler-icon"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</button>
-	</div>
-	<!-- Collection of nav links, forms, and other content for toggling -->
-	<div id="navbarCollapse" class="collapse navbar-collapse">
-		<ul class="nav navbar-nav">
-			<li><a href="#">Home</a></li>
-			<li><a href="#">About</a></li>
-			<li class="dropdown">
-				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Services <b class="caret"></b></a>
-				<ul class="dropdown-menu">
-					<li><a href="#">Web Design</a></li>
-					<li><a href="#">Web Development</a></li>
-					<li><a href="#">Graphic Design</a></li>
-					<li><a href="#">Digital Marketing</a></li>
-				</ul>
-			</li>
-			<li class="active"><a href="#">Pricing</a></li>
-			<li><a href="#">Blog</a></li>
-			<li><a href="#">Contact</a></li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
-			<li>
-				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Login</a>
-				<ul class="dropdown-menu login-form">
-					<li>
-						<form action="/examples/actions/confirmation.php" method="post">
-							<div class="form-group">
-								<label>Username</label>
-								<input type="text" class="form-control" required="required">
-							</div>
-							<div class="form-group">
-								<div class="clearfix">
-									<label>Password</label>
-									<a href="#" class="pull-right text-muted"><small>Forgot?</small></a>
-								</div>
-
-								<input type="password" class="form-control" required="required">
-							</div>
-							<input type="submit" class="btn btn-primary btn-block" value="Login">
-						</form>
-					</li>
-				</ul>
-			</li>
-			<li><a href="#" class="btn btn-primary mt-1 mb-1">Get Started</a></li>
-		</ul>
-	</div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">
+          <i class="fa fa-home"></i>
+          Home
+          </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fa fa-envelope-o">
+            <span class="badge badge-danger">11</span>
+          </i>
+          Link
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">
+          <i class="fa fa-envelope-o">
+            <span class="badge badge-warning">11</span>
+          </i>
+          Disabled
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-envelope-o">
+            <span class="badge badge-primary">11</span>
+          </i>
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+    <ul class="navbar-nav ">
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fa fa-bell">
+            <span class="badge badge-info">11</span>
+          </i>
+          Test
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fa fa-globe">
+            <span class="badge badge-success">11</span>
+          </i>
+          Test
+        </a>
+      </li>
+    </ul>
+  </div>
 </nav>
-</body>
+
+
+
+
+
+    <h1> INTELIGENTNY SYSTEM NAWADNIANIA</h1>
+
+
+        <div class = "container-flex">
+          <h2 class = "m-2"> Wilgotność gleby</h2>
+            <div class = "row d-flex flex-wrap m-3 border border-success" style = "height: 700px">
+                <div class = "col-flex ">
+                    <canvas id="lineChart" width="500" height="300"></canvas>
+                </div>
+
+                <div class = "col-flex my-auto" align="center", style="width:300px">
+                    <div class = "align-items-center loat-right width:200px">
+                        <form action ="#" method="post">
+                            <p class="text-white"> Wprowadź Gorny limit:</p>
+                            <p><input type = "number" name = "upper"/></p>
+                            <p class="text-white">Wprowadź Dolny limit:</p>
+                            <p><input type = "number" name = "lower"/></p>
+                            <p><button type="submit" class="btn btn-primary btn-block">Submit</button></p>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+    </br>
+
+
+        <div class="row d-flex m-5"  style = "height: 700px">
+            <h2 class = "m-2">Temperatura</h2>
+            <canvas id="lineChart2" width="800" height="400"></canvas>
+        </div>
+
+    </br>
+        <div class="row d-flex m-5"  style = "height: 700px">
+            <h2 class = "m-2">Oświetlenie</h2>
+            <canvas id="lineChart3" width="800" height="400"></canvas>
+        </div>
+    </div>
+
+
+    <script>
+
+
+    function responsiveFonts(){
+        if (window.outerWidth>999){
+            Chart.defaults.font.size=25;
+        };
+    }
+
+
+       var ctx = document.getElementById("lineChart").getContext("2d");
+       var lineChart = new Chart(ctx, {
+            type: "bar",
+            data:{
+                labels: {{ labels | safe }},
+                datasets: [
+                    {
+                        label:"Nawodnienie",
+                        data: {{values | safe }},
+                        fill: true,
+                        borderColor: "rgb(75, 102, 192)",<!--kolorek linii wykresu-->
+                        backgroundColor: '#9BF0F5',
+                        lineTension: 0,
+                        spanGaps: true
+                    }
+                ],
+            },
+
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                      y: {
+                        min: 0,
+                        ticks: {
+                            color: "rgb(75, 192, 192)",
+                            beginAtZero: false,
+
+                        }
+                      },
+                      x: {
+                        ticks: {
+                            color: "rgb(75, 192, 192)",
+                            beginAtZero: true,
+
+                        },
+
+                      }
+                    }
+
+            },
+       });
+
+
+       var ctx2 = document.getElementById("lineChart2").getContext("2d");
+       var lineChart2 = new Chart(ctx2, {
+            type: "line",
+            data:{
+                labels: {{ labels | safe }},
+                datasets: [
+                    {
+                        label:"temperatura",
+                        data: {{temperatures | safe }},
+                        fill: true,
+                        borderColor: "rgb(75, 192, 192)",<!--kolorek linii wykresu-->
+                        lineTension:0
+                    }
+                ]
+            },
+
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        ticks: {
+                            color: "rgb(75, 192, 192)",
+                            beginAtZero: false,
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: "rgb(75, 192, 192)",
+                            beginAtZero: false,
+                        },
+                    }
+                }
+
+            },
+       });
+
+
+       var ctx3 = document.getElementById("lineChart3").getContext("2d");
+       var lineChart3 = new Chart(ctx3, {
+            type: "bar",
+            data:{
+                labels: {{ labels | safe }},
+                datasets: [
+                    {
+                        label:"Natężenie oświetlenia",
+                        data: {{lightings | safe }},
+                        fill: true,
+                        borderColor: "rgb(75, 100, 100)",
+                        borderColor: "rgb(0, 0, 0)",<!--kolorek linii wykresu-->
+                        backgroundColor: '#9BD0F5',
+                        lineTension:1
+                    }
+                ]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        ticks: {
+                            color: "rgb(75, 192, 192)",
+                            beginAtZero: true,
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: "rgb(75, 192, 192)",
+                            beginAtZero: true,
+                        },
+                    }
+                }
+
+            },
+       });
+
+
+
+   </script>
+ </body>
 </html>
